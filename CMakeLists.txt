@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Huffman src/main.cpp
         src/codificador.cpp
         src/decodificador.cpp
+        src/codificador.h
+        src/decodificador.h
 )

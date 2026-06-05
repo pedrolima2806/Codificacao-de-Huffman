@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-int main() {
+int maain() {
 
     return 0;
 }
