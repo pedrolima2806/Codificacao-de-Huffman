@@ -35,10 +35,12 @@ Para isso, o algoritmo constrói uma **árvore binária de Huffman**, na qual ca
 ```txt
 .
 ├── src/
-│   ├── main.cpp
-│   ├── huffman.cpp
-│   └── huffman.h
-├── input.txt
-├── encoded.txt
-├── decoded.txt
+│   ├── decodificador.cpp
+│   ├── codificador.cpp
+│   └── main.cpp
+├── texts/
+|   ├── arvhuf.txt
+|   ├── decod.txt
+|   ├── input.txt
+|   └── texto.hfm
 └── README.md
