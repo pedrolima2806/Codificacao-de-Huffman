@@ -39,8 +39,8 @@ Para isso, o algoritmo constrói uma **árvore binária de Huffman**, na qual ca
 │   ├── codificador.cpp
 │   └── main.cpp
 ├── texts/
-|   ├── arvhuf.txt
-|   ├── decod.txt
-|   ├── input.txt
-|   └── texto.hfm
+│   ├── arvhuf.txt
+│   ├── decod.txt
+│   ├── input.txt
+│   └── texto.hfm
 └── README.md
