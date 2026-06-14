@@ -4,11 +4,11 @@
 #include <fstream>
 #include "decodificador.h"
 
-struct node {
+struct Node {
     char character;
     int frequency;
-    struct node *left;
-    struct node *right;
+    struct Node *left;
+    struct Node *right;
 };
 
 int decodificador() {
