@@ -12,8 +12,8 @@ struct Node {
     char character;
     int frequency;
     std::string label;
-    struct Node *left;
-    struct Node *right;
+    Node *left;
+    Node *right;
     bool isLeaf;
 
     Node(char c, int f) {
@@ -44,11 +44,11 @@ void writeNode(std::ofstream& file, Node* node);
 void deleteTree(Node* root);
 
 
-int codificador() {
+void codificador(const std::string& inputFile, const std::string& outputFile, const std::string& treeFile) {
     //------------------------------------------------------------------------------
     //Montagem do charFreqPair que é o vetor de pares de caracteres e sua frequência
     //------------------------------------------------------------------------------
-    std::ifstream archive("../texts/input.txt");
+    std::ifstream archive(inputFile);
     if (!archive.is_open()) {
         throw std::runtime_error("Error opening input file");
     }
@@ -80,8 +80,8 @@ int codificador() {
 
     //input vazio:
     if (nodes.empty()) {
-        std::ofstream outTree("../texts/arvhuf.txt");
-        std::ofstream encoded("../texts/texto.hfm");
+        std::ofstream outTree(treeFile);
+        std::ofstream encoded(outputFile);
 
         if (!outTree.is_open() || !encoded.is_open()) {
             throw std::runtime_error("Error creating output files.");
@@ -89,8 +89,7 @@ int codificador() {
 
         outTree << "PRE\n";
         outTree << "IN\n";
-
-        return 0;
+        return;
     }
 
     int internalId = 1;
@@ -121,7 +120,7 @@ int codificador() {
     //-----------------------------------
     //Gera o arquivo da árvore de Huffman
     //-----------------------------------
-    std::ofstream out("../texts/arvhuf.txt");
+    std::ofstream out(treeFile);
     if (!out.is_open()) {
         throw std::runtime_error("Error opening output file.");
     }
@@ -136,12 +135,12 @@ int codificador() {
     //------------------------------------
     //Gera o arquivo em binário comprimido
     //------------------------------------
-    std::ifstream inputAgain("../texts/input.txt");
+    std::ifstream inputAgain(inputFile);
     if (!inputAgain.is_open()) {
         throw std::runtime_error("Error opening input file again.");
     }
 
-    std::ofstream encoded("../texts/texto.hfm");
+    std::ofstream encoded(outputFile);
     if (!encoded.is_open()) {
         throw std::runtime_error("Error opening texto.hfm.");
     }
@@ -155,7 +154,6 @@ int codificador() {
     encoded.close();
 
     deleteTree(root);
-    return 0;
 }
 
 void Bbsort(std::vector<std::pair<char, int> >& charFreqPairs) {

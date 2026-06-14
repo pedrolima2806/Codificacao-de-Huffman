@@ -5,6 +5,7 @@
 #include "decodificador.h"
 
 int main() {
-    codificador();
+    codificador("../texts/input.txt","../texts/texto.hfm","../texts/arvhuf.txt");
+    decodificador("../texts/decod.txt","../texts/texto.hfm","../texts/arvhuf.txt");
     return 0;
 }
